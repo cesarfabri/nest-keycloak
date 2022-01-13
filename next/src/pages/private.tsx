@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { validateAuth } from "../util/auth";
 
 interface PrivatePageProps {
   name: string;
@@ -14,6 +15,18 @@ export default PrivatePage;
 
 export const getServerSideProps = 
   async (ctx: any) => {
+
+    const isAuth = validateAuth(ctx.req)
+
+    if (!isAuth) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: '/login'
+        }
+      }
+    }
+
     return {
       props: {}
     };
