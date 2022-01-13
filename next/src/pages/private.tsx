@@ -1,5 +1,6 @@
 import { NextPage } from "next";
-import { validateAuth } from "../util/auth";
+import { Token, validateAuth } from "../util/auth";
+import { http } from "../util/http";
 
 interface PrivatePageProps {
   name: string;
@@ -16,9 +17,9 @@ export default PrivatePage;
 export const getServerSideProps = 
   async (ctx: any) => {
 
-    const isAuth = validateAuth(ctx.req)
+    const auth = validateAuth(ctx.req)
 
-    if (!isAuth) {
+    if (!auth) {
       return {
         redirect: {
           permanent: false,
@@ -27,8 +28,16 @@ export const getServerSideProps =
       }
     }
 
+    const token = (auth as Token).token
+    
+    const { data } = await http.get("test-auth", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
     return {
-      props: {}
+      props: data,
     };
   }
 
