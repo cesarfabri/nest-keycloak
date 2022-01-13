@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { Transaction } from './transactions/entities/transaction.entity';
 import { TransactionsModule } from './transactions/transactions.module';
+import { TenantModule } from './tenant/tenant.module';
 //decorator - Javascript - Ecmascript 7
 
 @Module({
@@ -28,7 +29,8 @@ import { TransactionsModule } from './transactions/transactions.module';
       }
     }),
     AuthModule,
-    TransactionsModule],
+    TransactionsModule,
+    TenantModule],
   controllers: [AppController],
   providers: [AppService],
 })
