@@ -1,3 +1,9 @@
+export const KEYCLOAK_CONFIG = {
+  realm: process.env.NEXT_PUBLIC_KEYCLOAK_REALM,
+  clientId: process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID,
+  url: process.env.NEXT_PUBLIC_KEYCLOAK_URL,
+}
+
 export function isTokenExpired(token: string) {
   const payload = getPayload(token);
 
