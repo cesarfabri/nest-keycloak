@@ -1,4 +1,4 @@
-import { http } from "./../util/http";
+import { http } from "../util/http";
 import useSWR from "swr";
 import { useEffect } from "react";
 import Router from "next/router";
