@@ -1,6 +1,4 @@
 import { NextPage } from "next";
-import { withAuth } from "../hof/withAuth";
-import { http } from "../util/http";
 
 interface PrivatePageProps {
   name: string;
@@ -14,19 +12,26 @@ const PrivatePage: NextPage<PrivatePageProps> = (props) => {
 
 export default PrivatePage;
 
-export const getServerSideProps = withAuth(
-  async (ctx: any, cookies: any, payload: any) => {
-      console.log(cookies);
-    const { data } = await http.get("test-auth", {
-      headers: {
-        Authorization: `Bearer ${cookies.token}`,
-      },
-    });
+export const getServerSideProps = 
+  async (ctx: any) => {
     return {
-      props: data,
+      props: {}
     };
   }
-);
+
+// export const getServerSideProps = withAuth(
+//   async (ctx: any, cookies: any, payload: any) => {
+//       console.log(cookies);
+//     const { data } = await http.get("test-auth", {
+//       headers: {
+//         Authorization: `Bearer ${cookies.token}`,
+//       },
+//     });
+//     return {
+//       props: data,
+//     };
+//   }
+// );
 
 // export const getServerSideProps: GetServerSideProps = async (ctx) => {
 //   const cookies = parseCookies(ctx.req);

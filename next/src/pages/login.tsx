@@ -1,6 +1,7 @@
 import { useKeycloak } from "@react-keycloak/ssr";
 import { KeycloakInstance } from "keycloak-js";
 import { useEffect } from "react";
+import Router from "next/router";
 
 
 const LoginPage = () => {
@@ -13,9 +14,16 @@ const LoginPage = () => {
       return
     }
     if (!authenticated) {
-      login({
-        redirectUri: 'http://localhost:3007/private'
-      })
+      login()
+    }
+  }, [login, authenticated, initialized])
+
+  useEffect(() => {
+    if (!initialized) {
+      return
+    }
+    if (authenticated) {
+      Router.replace('/private')
     }
   }, [login, authenticated, initialized])
 
