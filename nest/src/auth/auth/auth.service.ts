@@ -10,10 +10,10 @@ export class AuthService {
   async login(username: string, password: string) {
     const { data } = await firstValueFrom(
       this.http.post(
-        'http://host.docker.internal:8085/auth/realms/dicenter/protocol/openid-connect/token',
+        'http://host.docker.internal:8086/auth/realms/dicenter/protocol/openid-connect/token',
         new URLSearchParams({
           client_id: 'nest',
-          client_secret: 'VaCy8I2SfPxRMZYmda6KrqyvZyFjp0Ff',
+          client_secret: 'giyllJcUSymDR8XcMDQ66isW7ODQsW0V',
           grant_type: 'password',
           username,
           password,

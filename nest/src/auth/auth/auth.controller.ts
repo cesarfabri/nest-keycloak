@@ -18,7 +18,7 @@ export class AuthController {
   test(@Req() req) {
     console.log(req.user);
     return {
-      name: 'Cesar Fabri',
+      name: 'Cesar',
     };
   }
 }
