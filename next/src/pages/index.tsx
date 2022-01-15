@@ -1,11 +1,22 @@
+import { useKeycloak } from "@react-keycloak/ssr";
 import type { NextPage } from "next";
-import useSWR from "swr";
-import { useAuthHttp } from "../hooks/useAuthHttp";
+import { useRouter } from "next/router";
 
+
+// pagina estatica
 const Home: NextPage = () => {
-  const { data: user, error } = useAuthHttp("user");
+  const {initialized, keycloak} = useKeycloak();
+  const router = useRouter();
+
+  if (
+    typeof window !== "undefined" &&
+    initialized && !keycloak?.authenticated) {
+    router.replace('/login')
+    return null;
+  }
+
   //Context API
-  return user ? <div>Hello World</div> : null;
+  return keycloak?.authenticated ? <div>Hello World</div> : null;
 };
 
 export default Home;
