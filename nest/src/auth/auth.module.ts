@@ -9,7 +9,7 @@ import { JwtStrategyService } from './jwt-strategy/jwt-strategy.service';
   imports: [
     HttpModule,
     JwtModule.register({
-      secret: 'abc123456',
+      secret: 'WHn9ZPXp3WjLbItLci61xqenGEnZSko5',
       signOptions: {
         expiresIn: '60s',
       },
