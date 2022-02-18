@@ -15,6 +15,7 @@ export class AuthService {
           client_id: 'nest',
           client_secret: 'ofwHaTO0QWZlkXb6aTK4ckwicMwXuxZo',
           grant_type: 'password',
+          scope: 'openid profile email api-nest',
           username,
           password,
         }),

@@ -9,6 +9,7 @@ const LoginPage = () => {
   
   const { login = () => {}, authenticated } = keycloak || {};
 
+  // para redirecionar para o login keycloak
   useEffect(() => {
     if (!initialized) {
       return
@@ -18,6 +19,7 @@ const LoginPage = () => {
     }
   }, [login, authenticated, initialized])
 
+  // para redirecionar para dentro da aplicação
   useEffect(() => {
     if (!initialized) {
       return

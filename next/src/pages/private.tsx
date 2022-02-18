@@ -8,7 +8,7 @@ interface PrivatePageProps {
 }
 
 const PrivatePage: NextPage<PrivatePageProps> = (props) => {
-  console.log(props.payload);
+  // console.log(props.payload);
   return <div>Pagina privada {props.name}</div>;
 };
 
