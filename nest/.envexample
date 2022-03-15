@@ -1,0 +1,20 @@
+DB_CONNECTION=postgres
+DB_HOST=localhost
+DB_USERNAME=name
+DB_PASSWORD=password
+DB_DATABASE=db
+DB_PORT=port
+
+POSTGRES_DB=keycloak
+POSTGRES_USER=name
+POSTGRES_PASSWORD=password
+
+DB_VENDOR=POSTGRES
+DB_ADDR=postgres
+DB_DATABASE=keycloak
+DB_USER=name
+DB_PASSWORD=password
+KEYCLOAK_USER=admin
+KEYCLOAK_PASSWORD=password
+
+JWT_SECRET="-----BEGIN PUBLIC KEY-----\n<KEY HERE>\n-----END PUBLIC KEY-----"
