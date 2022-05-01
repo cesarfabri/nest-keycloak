@@ -26,11 +26,12 @@ import { TenantModule } from './tenant/tenant.module';
       synchronize: true,
       sync: {
         alter: true,
-      }
+      },
     }),
     AuthModule,
     TransactionsModule,
-    TenantModule],
+    TenantModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

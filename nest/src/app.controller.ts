@@ -12,7 +12,7 @@ export class AppController {
   }
 
   @Get('test')
-  metodo1(){
+  metodo1() {
     return 'qualquer coisa';
   }
 }

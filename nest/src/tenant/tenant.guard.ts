@@ -4,7 +4,7 @@ import { TenantService } from './tenant/tenant.service';
 
 @Injectable()
 export class TenantGuard implements CanActivate {
-  constructor(private tenantService: TenantService){}
+  constructor(private tenantService: TenantService) {}
 
   canActivate(
     context: ExecutionContext,

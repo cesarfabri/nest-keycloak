@@ -2,5 +2,5 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TenantService {
-    subdomain: string
+  subdomain: string;
 }
