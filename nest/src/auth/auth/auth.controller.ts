@@ -1,6 +1,8 @@
 import { JwtGuard } from './jwt.guard';
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { RoleGuard } from '../role.guard';
+import { Role } from '../role.decorator';
 
 @Controller()
 export class AuthController {
@@ -13,12 +15,14 @@ export class AuthController {
 
   // @Role('admin') retirado do original
   // @UseGuards(JwtGuard, RoleGuard)
-  @UseGuards(JwtGuard)
+  @Role('desenvolvimento')
+  @UseGuards(JwtGuard, RoleGuard)
   @Get('test-auth')
   test(@Req() req) {
+    const user = req.user
     console.log(req.user);
     return {
-      name: 'Cesar',
+      user,
     };
   }
 }

@@ -9,7 +9,11 @@ import { JwtStrategyService } from './jwt-strategy/jwt-strategy.service';
   imports: [
     HttpModule,
     JwtModule.register({
+<<<<<<< HEAD
       secret: 'WHn9ZPXp3WjLbItLci61xqenGEnZSko5',
+=======
+      secret: process.env.CLIENT_SECRET,
+>>>>>>> 3b67fe7 (Refact(auth) Adjustments in the security)
       signOptions: {
         expiresIn: '60s',
       },
